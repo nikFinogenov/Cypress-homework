@@ -28,8 +28,8 @@ describe('Testing your first application page', () => {
 
 
     before(() => {
-        firstAppPage = new FirstAppPage()
-        getStartedPage = new GetStartedPage()
+        firstAppPage = new FirstAppPage();
+        getStartedPage = new GetStartedPage();
     })
     beforeEach(() => {
         firstAppPage.visit()
@@ -64,6 +64,7 @@ describe('Testing your first application page', () => {
         })
         it('should navigate to start course page', () => {
             firstAppPage.getStartCourseButton().click()
+            cy.wait(1000); // Wait for getStarter page to be loaded
             getStartedPage.getUrl().then(url => {
                 expect(url).include(CONFIG.getStartedPage.path)
             })
